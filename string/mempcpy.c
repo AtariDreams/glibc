@@ -1,6 +1,6 @@
 /* Copy memory to memory until the specified number of bytes
    has been copied, return pointer to following byte.
-   Overlap is NOT handled correctly.
+   Memory must NOT overlap.
    Copyright (C) 1991-2021 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
    Contributed by Torbjorn Granlund (tege@sics.se).
@@ -30,7 +30,7 @@
 #endif
 
 void *
-MEMPCPY (void *dest, const void *src, size_t len)
+MEMPCPY (void * restrict dest, const void * restrict src, size_t len)
 {
   return memcpy (dest, src, len) + len;
 }
