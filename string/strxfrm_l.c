@@ -118,7 +118,7 @@ find_idx (const USTRING_TYPE ** restrict us, int32_t * restrict weight_idx,
 }
 
 static int
-find_position (const USTRING_TYPE *us, const locale_data_t *l_data,
+find_position (const USTRING_TYPE * restrict us, const locale_data_t * restrict l_data,
 	       const int pass)
 {
   int32_t weight_idx;
@@ -131,8 +131,8 @@ find_position (const USTRING_TYPE *us, const locale_data_t *l_data,
 
 /* Do the transformation.  */
 static size_t
-do_xfrm (const USTRING_TYPE *usrc, STRING_TYPE *dest, size_t n,
-	 const locale_data_t *l_data)
+do_xfrm (const USTRING_TYPE * restrict usrc, STRING_TYPE * restrict dest, size_t n,
+	 const locale_data_t * restrict l_data)
 {
   int32_t weight_idx;
   unsigned char rule_idx;
