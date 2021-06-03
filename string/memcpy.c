@@ -1,5 +1,5 @@
 /* Copy memory to memory until the specified number of bytes
-   has been copied.  Overlap is NOT handled correctly.
+   has been copied.  Memory must NOT overlap!
    Copyright (C) 1991-2021 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
    Contributed by Torbjorn Granlund (tege@sics.se).
@@ -26,10 +26,10 @@
 #endif
 
 void *
-MEMCPY (void *dstpp, const void *srcpp, size_t len)
+MEMCPY (void * restrict dstpp, const void * restrict srcpp, size_t len)
 {
-  unsigned long int dstp = (long int) dstpp;
-  unsigned long int srcp = (long int) srcpp;
+  unsigned long int dstp = (unsigned long int) dstpp;
+  unsigned long int srcp = (unsigned long int) srcpp;
 
   /* Copy from the beginning to the end.  */
 
