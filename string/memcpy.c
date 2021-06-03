@@ -1,5 +1,6 @@
 /* Copy memory to memory until the specified number of bytes
-   has been copied.  Memory must NOT overlap!
+   has been copied.  Memory must NOT overlap.
+
    Copyright (C) 1991-2021 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
    Contributed by Torbjorn Granlund (tege@sics.se).
