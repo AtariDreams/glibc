@@ -53,8 +53,7 @@ catopen (const char *cat_name, int flag)
       if (nlspath != NULL && *nlspath != '\0')
 	{
 	  /* Append the system dependent directory.  */
-	  size_t len = strlen (nlspath) + 1 + sizeof NLSPATH;
-	  tmp = malloc (len);
+	  tmp = malloc (strlen (nlspath) + 1 + sizeof NLSPATH);
 
 	  if (__glibc_unlikely (tmp == NULL))
 	    return (nl_catd) -1;
