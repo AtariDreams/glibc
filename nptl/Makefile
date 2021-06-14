@@ -251,6 +251,7 @@ CFLAGS-pthread_clockjoin.c += -fexceptions -fasynchronous-unwind-tables
 CFLAGS-pthread_once.c += $(uses-callbacks) -fexceptions \
 			-fasynchronous-unwind-tables
 CFLAGS-pthread_cond_wait.c += -fexceptions -fasynchronous-unwind-tables
+CFLAGS-pthread_kill.c = -fexceptions -fasynchronous-unwind-tables
 CFLAGS-sem_wait.c += -fexceptions -fasynchronous-unwind-tables
 CFLAGS-sem_timedwait.c += -fexceptions -fasynchronous-unwind-tables
 CFLAGS-sem_clockwait.c = -fexceptions -fasynchronous-unwind-tables
@@ -497,7 +498,6 @@ $(objpfx)tst-stack3-mem.out: $(objpfx)tst-stack3.out
 	$(evaluate-test)
 generated += tst-stack3-mem.out tst-stack3.mtrace
 
-$(objpfx)tst-stack4: $(libdl)
 tst-stack4mod.sos=$(shell for i in 0 1 2 3 4 5 6 7 8 9 10 \
 				   11 12 13 14 15 16 17 18 19; do \
 			    for j in 0 1 2 3 4 5 6 7 8 9 10 \
@@ -513,11 +513,9 @@ clean:
 $(objpfx)tst-cleanup4: $(objpfx)tst-cleanup4aux.o
 $(objpfx)tst-cleanupx4: $(objpfx)tst-cleanupx4aux.o
 
-$(objpfx)tst-tls3: $(libdl)
 LDFLAGS-tst-tls3 = -rdynamic
 $(objpfx)tst-tls3.out: $(objpfx)tst-tls3mod.so
 
-$(objpfx)tst-tls3-malloc: $(libdl)
 LDFLAGS-tst-tls3-malloc = -rdynamic
 $(objpfx)tst-tls3-malloc.out: $(objpfx)tst-tls3mod.so
 
@@ -535,8 +533,6 @@ $(objpfx)tst-tls6.out: tst-tls6.sh $(objpfx)tst-tls5 \
 	$(evaluate-test)
 endif
 
-$(objpfx)tst-dlsym1: $(libdl)
-
 ifeq (yes,$(build-shared))
 librt = $(common-objpfx)rt/librt.so
 else
@@ -550,14 +546,12 @@ LDLIBS-tst-cancel24 = -Wl,--no-as-needed -lstdc++
 LDLIBS-tst-cancel24-static = $(LDLIBS-tst-cancel24)
 
 ifeq ($(build-shared),yes)
-$(objpfx)tst-unload: $(libdl)
 
 generated += multidir.mk tst-tls6.out
 endif
 
 tst-exec4-ARGS = $(host-test-program-cmd)
 
-$(objpfx)tst-execstack: $(libdl)
 $(objpfx)tst-execstack.out: $(objpfx)tst-execstack-mod.so
 LDFLAGS-tst-execstack = -Wl,-z,noexecstack
 CFLAGS-tst-execstack-mod.c += -Wno-trampolines
