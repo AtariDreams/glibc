@@ -26,7 +26,7 @@
 #endif
 
 size_t
-STRXFRM (STRING_TYPE *dest, const STRING_TYPE *src, size_t n)
+STRXFRM (STRING_TYPE * restrict dest, const STRING_TYPE * restrict src, size_t n)
 {
   return STRXFRM_L (dest, src, n, _NL_CURRENT_LOCALE);
 }

@@ -97,8 +97,8 @@ utf8_encode (char *buf, int val)
 
 /* Find next weight and rule index.  Inlined since called for every char.  */
 static __always_inline size_t
-find_idx (const USTRING_TYPE **us, int32_t *weight_idx,
-	  unsigned char *rule_idx, const locale_data_t *l_data, const int pass)
+find_idx (const USTRING_TYPE ** restrict us, int32_t * restrict weight_idx,
+	  unsigned char * restrict rule_idx, const locale_data_t *restrict l_data, const int pass)
 {
   int32_t tmp = findidx (l_data->table, l_data->indirect, l_data->extra, us,
 			 -1);
@@ -118,7 +118,7 @@ find_idx (const USTRING_TYPE **us, int32_t *weight_idx,
 }
 
 static int
-find_position (const USTRING_TYPE *us, const locale_data_t *l_data,
+find_position (const USTRING_TYPE * restrict us, const locale_data_t * restrict l_data,
 	       const int pass)
 {
   int32_t weight_idx;
@@ -131,8 +131,8 @@ find_position (const USTRING_TYPE *us, const locale_data_t *l_data,
 
 /* Do the transformation.  */
 static size_t
-do_xfrm (const USTRING_TYPE *usrc, STRING_TYPE *dest, size_t n,
-	 const locale_data_t *l_data)
+do_xfrm (const USTRING_TYPE * restrict usrc, STRING_TYPE * restrict dest, size_t n,
+	 const locale_data_t * restrict l_data)
 {
   int32_t weight_idx;
   unsigned char rule_idx;
@@ -402,8 +402,8 @@ do_xfrm (const USTRING_TYPE *usrc, STRING_TYPE *dest, size_t n,
 
 /* Do the transformation using weight-index and rule cache.  */
 static size_t
-do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
-		size_t idxmax, int32_t *idxarr, const unsigned char *rulearr)
+do_xfrm_cached (STRING_TYPE * restrict dest, size_t n, const locale_data_t * restrict l_data,
+		size_t idxmax, int32_t * restrict idxarr, const unsigned char * restrict rulearr)
 {
   uint_fast32_t nrules = l_data->nrules;
   unsigned char *rulesets = l_data->rulesets;
@@ -562,7 +562,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 		  if (len != 0)
 		    {
 #ifdef WIDE_CHAR_VERSION
-		      if (needed + 1+ len < n)
+		      if (needed + 1 + len < n)
 			{
 			  dest[needed] = val;
 			  for (i = 0; i < len; ++i)
@@ -665,7 +665,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 }
 
 size_t
-STRXFRM (STRING_TYPE *dest, const STRING_TYPE *src, size_t n, locale_t l)
+STRXFRM (STRING_TYPE * restrict dest, const STRING_TYPE * restrict src, size_t n, locale_t l)
 {
   locale_data_t l_data;
   struct __locale_data *current = l->__locales[LC_COLLATE];

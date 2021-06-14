@@ -24,9 +24,9 @@
 #endif
 
 char *
-STRNCPY (char *s1, const char *s2, size_t n)
+STRNCPY (char * restrict s1, const char * restrict s2, size_t n)
 {
-  size_t size = __strnlen (s2, n);
+  const size_t size = __strnlen (s2, n);
   if (size != n)
     memset (s1 + size, '\0', n - size);
   return memcpy (s1, s2, size);
