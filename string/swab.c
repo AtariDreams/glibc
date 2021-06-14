@@ -18,7 +18,7 @@
 #include <unistd.h>
 
 void
-swab (const void *bfrom, void *bto, ssize_t n)
+swab (const void * restrict bfrom, void * restrict bto, ssize_t n)
 {
   const char *from = (const char *) bfrom;
   char *to = (char *) bto;
