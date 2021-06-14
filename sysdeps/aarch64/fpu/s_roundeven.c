@@ -1,5 +1,5 @@
-/* Call to terminate the current thread.  Stub version.
-   Copyright (C) 2014-2021 Free Software Foundation, Inc.
+/* Copyright (C) 2021 Free Software Foundation, Inc.
+
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,13 +16,14 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* This causes the current thread to exit, without affecting other
-   threads in the process if there are any.  If there are no other
-   threads left, then this has the effect of _exit (0).  */
+#include <math.h>
+#include <libm-alias-double.h>
 
-static inline void __attribute__ ((noreturn, always_inline, unused))
-__exit_thread (void)
+double
+__roundeven (double x)
 {
-  while (1)
-    asm ("write me!");
+  asm volatile ("frintn \t%d0, %d1" : "=w" (x) : "w" (x));
+  return x;
 }
+hidden_def (__roundeven)
+libm_alias_double (__roundeven, roundeven)

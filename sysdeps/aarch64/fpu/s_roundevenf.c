@@ -1,5 +1,5 @@
-/* Load a shared object at run time.
-   Copyright (C) 2005-2021 Free Software Foundation, Inc.
+/* Copyright (C) 2021 Free Software Foundation, Inc.
+
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,23 +16,13 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-#include <dlfcn.h>
+#include <math.h>
+#include <libm-alias-float.h>
 
-
-int __dlfcn_argc attribute_hidden;
-char **__dlfcn_argv attribute_hidden;
-
-
-static void
-init (int argc, char *argv[])
+float
+__roundevenf (float x)
 {
-  __dlfcn_argc = argc;
-  __dlfcn_argv = argv;
+  asm volatile ("frintn \t%s0, %s1" : "=w" (x) : "w" (x));
+  return x;
 }
-
-static void (*const init_array []) (int argc, char *argv[])
-     __attribute__ ((section (".init_array"), aligned (sizeof (void *))))
-     __attribute_used__ =
-{
-  init
-};
+libm_alias_float (__roundeven, roundeven)

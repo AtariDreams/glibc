@@ -1,9 +1,32 @@
 libc {
   GLIBC_2.0 {
+    dladdr;
+    dlclose;
     dlerror;
+    dlopen;
+    dlsym;
+  }
+  GLIBC_2.1 {
+    dlopen;
+    dlvsym;
+  }
+  GLIBC_2.3.3 {
+    dladdr1;
+    dlinfo;
+  }
+  GLIBC_2.3.4 {
+    dlmopen;
   }
   GLIBC_2.34 {
+    dladdr1;
+    dladdr;
+    dlclose;
     dlerror;
+    dlinfo;
+    dlmopen;
+    dlopen;
+    dlsym;
+    dlvsym;
   }
   GLIBC_PRIVATE {
     __libc_dlerror_result;
@@ -13,18 +36,15 @@ libc {
 }
 libdl {
   GLIBC_2.0 {
-    dladdr;
-    dlclose;
-    dlopen;
-    dlsym;
+    __libdl_version_placeholder;
   }
   GLIBC_2.1 {
-    dlopen; dlvsym;
+    __libdl_version_placeholder;
   }
   GLIBC_2.3.3 {
-    dladdr1; dlinfo;
+    __libdl_version_placeholder;
   }
   GLIBC_2.3.4 {
-    dlmopen;
+    __libdl_version_placeholder;
   }
 }
