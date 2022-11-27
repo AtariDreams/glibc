@@ -7,7 +7,7 @@
 
 int
 attribute_hidden
-fscanf (FILE *stream, const char *fmt, ...)
+fscanf (FILE *__restrict stream, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

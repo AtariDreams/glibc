@@ -30,7 +30,7 @@
 #endif
 
 void *
-MEMPCPY (void *dest, const void *src, size_t len)
+MEMPCPY (void *__restrict dest, const void *__restrict src, size_t len)
 {
   return memcpy (dest, src, len) + len;
 }

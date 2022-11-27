@@ -238,7 +238,7 @@ char *
 #else
 static char *
 #endif
-__strptime_internal (const char *rp, const char *fmt, struct tm *tmp,
+__strptime_internal (const char *rp, const char *__restrict fmt, struct tm *tmp,
 		     void *statep LOCALE_PARAM)
 {
 #ifdef _LIBC
@@ -821,7 +821,7 @@ __strptime_internal (const char *rp, const char *fmt, struct tm *tmp,
 	      /* Match locale's alternate date and time format.  */
 	      if (s.decided != raw)
 		{
-		  const char *fmt = _NL_CURRENT (LC_TIME, ERA_D_T_FMT);
+		  const char *__restrict fmt = _NL_CURRENT (LC_TIME, ERA_D_T_FMT);
 
 		  if (*fmt == '\0')
 		    fmt = _NL_CURRENT (LC_TIME, D_T_FMT);
@@ -992,7 +992,7 @@ __strptime_internal (const char *rp, const char *fmt, struct tm *tmp,
 	    case 'x':
 	      if (s.decided != raw)
 		{
-		  const char *fmt = _NL_CURRENT (LC_TIME, ERA_D_FMT);
+		  const char *__restrict fmt = _NL_CURRENT (LC_TIME, ERA_D_FMT);
 
 		  if (*fmt == '\0')
 		    fmt = _NL_CURRENT (LC_TIME, D_FMT);
@@ -1018,7 +1018,7 @@ __strptime_internal (const char *rp, const char *fmt, struct tm *tmp,
 	    case 'X':
 	      if (s.decided != raw)
 		{
-		  const char *fmt = _NL_CURRENT (LC_TIME, ERA_T_FMT);
+		  const char *__restrict fmt = _NL_CURRENT (LC_TIME, ERA_T_FMT);
 
 		  if (*fmt == '\0')
 		    fmt = _NL_CURRENT (LC_TIME, T_FMT);

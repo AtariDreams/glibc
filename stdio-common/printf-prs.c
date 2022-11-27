@@ -57,7 +57,7 @@
 
 
 size_t
-parse_printf_format (const char *fmt, size_t n, int *argtypes)
+parse_printf_format (const char *__restrict fmt, size_t n, int *argtypes)
 {
   size_t nargs;			/* Number of arguments.  */
   size_t max_ref_arg;		/* Highest index used in a positional arg.  */

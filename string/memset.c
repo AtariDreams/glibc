@@ -26,7 +26,7 @@ void *
 inhibit_loop_to_libcall
 MEMSET (void *dstpp, int c, size_t len)
 {
-  long int dstp = (long int) dstpp;
+  unsigned long int dstp = (unsigned long int) dstpp;
 
   if (len >= 8)
     {

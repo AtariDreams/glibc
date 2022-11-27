@@ -23,7 +23,7 @@
 
 struct dec_test {
   double d;
-  const char *fmt;
+  const char *__restrict fmt;
   const char *rd, *rn, *rz, *ru;
 };
 
@@ -49,7 +49,7 @@ static const struct dec_test dec_tests[] = {
 };
 
 static int
-test_dec_in_one_mode (double d, const char *fmt, const char *expected,
+test_dec_in_one_mode (double d, const char *__restrict fmt, const char *expected,
 		      const char *mode_name)
 {
   char buf[100];
@@ -72,7 +72,7 @@ test_dec_in_one_mode (double d, const char *fmt, const char *expected,
 struct hex_test
 {
   double d;
-  const char *fmt;
+  const char *__restrict fmt;
   const char *rd[4], *rn[4], *rz[4], *ru[4];
 };
 
@@ -137,7 +137,7 @@ static const struct hex_test hex_tests[] =
   };
 
 static int
-test_hex_in_one_mode (double d, const char *fmt, const char *const expected[4],
+test_hex_in_one_mode (double d, const char *__restrict fmt, const char *const expected[4],
 		      const char *mode_name)
 {
   char buf[100];

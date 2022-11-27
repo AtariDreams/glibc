@@ -4,12 +4,12 @@
 /* Prototypes for internal argp.h functions.  */
 #include <stdarg.h>
 void
-__argp_error_internal (const struct argp_state *state, const char *fmt,
+__argp_error_internal (const struct argp_state *state, const char *__restrict fmt,
 		       va_list ap, unsigned int mode_flags);
 
 void
 __argp_failure_internal (const struct argp_state *state, int status,
-			 int errnum, const char *fmt, va_list ap,
+			 int errnum, const char *__restrict fmt, va_list ap,
 			 unsigned int mode_flags);
 
 #ifndef _ISOMAC

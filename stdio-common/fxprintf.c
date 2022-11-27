@@ -23,7 +23,7 @@
 #include <libioP.h>
 
 static int
-locked_vfxprintf (FILE *fp, const char *fmt, va_list ap,
+locked_vfxprintf (FILE *__restrict fp, const char *__restrict fmt, va_list ap,
 		  unsigned int mode_flags)
 {
   if (_IO_fwide (fp, 0) <= 0)
@@ -62,7 +62,7 @@ locked_vfxprintf (FILE *fp, const char *fmt, va_list ap,
 }
 
 int
-__vfxprintf (FILE *fp, const char *fmt, va_list ap,
+__vfxprintf (FILE *fp, const char *__restrict fmt, va_list ap,
 	     unsigned int mode_flags)
 {
   if (fp == NULL)
@@ -74,7 +74,7 @@ __vfxprintf (FILE *fp, const char *fmt, va_list ap,
 }
 
 int
-__fxprintf (FILE *fp, const char *fmt, ...)
+__fxprintf (FILE *fp, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -84,7 +84,7 @@ __fxprintf (FILE *fp, const char *fmt, ...)
 }
 
 int
-__fxprintf_nocancel (FILE *fp, const char *fmt, ...)
+__fxprintf_nocancel (FILE *fp, const char *__restrict fmt, ...)
 {
   if (fp == NULL)
     fp = stderr;

@@ -25,7 +25,7 @@
 #include <signal.h>
 
 static int
-format_failed (const char *fmt, const char *expected)
+format_failed (const char *__restrict fmt, const char *expected)
 {
   char output[80];
 

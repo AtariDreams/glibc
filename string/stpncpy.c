@@ -37,9 +37,9 @@ weak_alias (__stpncpy, stpncpy)
 /* Copy no more than N characters of SRC to DEST, returning the address of
    the terminating '\0' in DEST, if any, or else DEST + N.  */
 char *
-STPNCPY (char *dest, const char *src, size_t n)
+STPNCPY (char * __restrict dest, const char * __restrict src, size_t n)
 {
-  size_t size = __strnlen (src, n);
+  const size_t size = __strnlen (src, n);
   memcpy (dest, src, size);
   dest += size;
   if (size == n)

@@ -31,7 +31,7 @@ const char *fmt2 = "\e[34m";
 
 __attribute__((noinline, noclone))
 static void
-func4(ucontext_t *uocp, ucontext_t *ucp, const char *str, const char *fmt)
+func4(ucontext_t *uocp, ucontext_t *ucp, const char *__restrict str, const char *__restrict fmt)
 {
   printf("      %sfunc4: %s\e[0m\n", fmt, str);
   if (swapcontext(uocp, ucp) == -1)
@@ -41,7 +41,7 @@ func4(ucontext_t *uocp, ucontext_t *ucp, const char *str, const char *fmt)
 
 __attribute__((noinline, noclone))
 static void
-func3(ucontext_t *uocp, ucontext_t *ucp, const char *str, const char *fmt)
+func3(ucontext_t *uocp, ucontext_t *ucp, const char *__restrict str, const char *__restrict fmt)
 {
   printf("    %sfunc3: func4(uocp, ucp, str)\e[0m\n", fmt);
   func4(uocp, ucp, str, fmt);

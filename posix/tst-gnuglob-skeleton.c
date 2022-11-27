@@ -344,7 +344,7 @@ errstr (int val)
 
 
 static int
-test_result (const char *fmt, int flags, GLOB_TYPE *gl, const char *str[])
+test_result (const char *__restrict fmt, int flags, GLOB_TYPE *gl, const char *str[])
 {
   size_t cnt;
   int result = 0;
@@ -391,7 +391,7 @@ do_test (void)
   GLOB_TYPE gl;
   int errval;
   int result = 0;
-  const char *fmt;
+  const char *__restrict fmt;
   int flags;
 
   mtrace ();

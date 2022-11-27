@@ -15,7 +15,7 @@ extern void __assert_perror_fail (int __errnum, const char *__file,
      __THROW __attribute__ ((__noreturn__));
 
 /* The real implementation of the two functions above.  */
-extern void __assert_fail_base (const char *fmt, const char *assertion,
+extern void __assert_fail_base (const char *__restrict fmt, const char *assertion,
 				const char *file, unsigned int line,
 				const char *function)
      __THROW  __attribute__ ((__noreturn__)) attribute_hidden;

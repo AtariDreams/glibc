@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-__sprintf_chk (char *s, int flag, size_t slen, const char *fmt, ...)
+__sprintf_chk (char *__restrict s, int flag, size_t slen, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

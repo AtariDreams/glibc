@@ -32,7 +32,7 @@
   } while (0)
 
 static int __attribute__ ((format (scanf, 2, 3)))
-xsscanf (const char *str, const char *fmt, ...)
+xsscanf (const char *str, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -42,7 +42,7 @@ xsscanf (const char *str, const char *fmt, ...)
 }
 
 static int __attribute__ ((format (scanf, 1, 2)))
-xscanf (const char *fmt, ...)
+xscanf (const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -52,7 +52,7 @@ xscanf (const char *fmt, ...)
 }
 
 static int __attribute__ ((format (scanf, 2, 3)))
-xfscanf (FILE *f, const char *fmt, ...)
+xfscanf (FILE *f, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);

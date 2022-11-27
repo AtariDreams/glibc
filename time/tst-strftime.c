@@ -126,7 +126,7 @@ do_test (void)
     };
   const struct
   {
-    const char *fmt;
+    const char *__restrict fmt;
     const char *exp;
     size_t n;
   } ftests[] =

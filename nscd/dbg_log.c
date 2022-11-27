@@ -48,7 +48,7 @@ init_logfile (void)
 }
 
 void
-dbg_log (const char *fmt,...)
+dbg_log (const char *__restrict fmt,...)
 {
   va_list ap;
   char msg2[512];

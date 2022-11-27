@@ -761,19 +761,19 @@ extern void *_dl_random attribute_hidden attribute_relro;
 /* Write message on the debug file descriptor.  The parameters are
    interpreted as for a `printf' call.  All the lines start with a
    tag showing the PID.  */
-extern void _dl_debug_printf (const char *fmt, ...)
+extern void _dl_debug_printf (const char *__restrict fmt, ...)
      __attribute__ ((__format__ (__printf__, 1, 2))) attribute_hidden;
 
 /* Write message on the debug file descriptor.  The parameters are
    interpreted as for a `printf' call.  All the lines buf the first
    start with a tag showing the PID.  */
-extern void _dl_debug_printf_c (const char *fmt, ...)
+extern void _dl_debug_printf_c (const char *__restrict fmt, ...)
      __attribute__ ((__format__ (__printf__, 1, 2))) attribute_hidden;
 
 
 /* Write a message on the specified descriptor FD.  The parameters are
    interpreted as for a `printf' call.  */
-extern void _dl_dprintf (int fd, const char *fmt, ...)
+extern void _dl_dprintf (int fd, const char *__restrict fmt, ...)
      __attribute__ ((__format__ (__printf__, 2, 3)))
      attribute_hidden;
 
@@ -785,17 +785,17 @@ ssize_t _dl_write (int fd, const void *buffer, size_t length)
 
 /* Write a message on the specified descriptor standard output.  The
    parameters are interpreted as for a `printf' call.  */
-void _dl_printf (const char *fmt, ...)
+void _dl_printf (const char *__restrict fmt, ...)
   attribute_hidden __attribute__ ((__format__ (__printf__, 1, 2)));
 
 /* Write a message on the specified descriptor standard error.  The
    parameters are interpreted as for a `printf' call.  */
-void _dl_error_printf (const char *fmt, ...)
+void _dl_error_printf (const char *__restrict fmt, ...)
   attribute_hidden __attribute__ ((__format__ (__printf__, 1, 2)));
 
 /* Write a message on the specified descriptor standard error and exit
    the program.  The parameters are interpreted as for a `printf' call.  */
-void _dl_fatal_printf (const char *fmt, ...)
+void _dl_fatal_printf (const char *__restrict fmt, ...)
   __attribute__ ((__format__ (__printf__, 1, 2), __noreturn__));
 rtld_hidden_proto (_dl_fatal_printf)
 
@@ -830,7 +830,7 @@ void _dl_error_free (void *ptr) attribute_hidden;
    string FMT.  Currently, only "%s" and "%%" are supported as format
    directives.  */
 void _dl_exception_create_format (struct dl_exception *, const char *objname,
-				  const char *fmt, ...)
+				  const char *__restrict fmt, ...)
   __attribute__ ((nonnull (1, 3), format (printf, 3, 4)));
 rtld_hidden_proto (_dl_exception_create_format)
 

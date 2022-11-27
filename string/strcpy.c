@@ -26,7 +26,7 @@
 
 /* Copy SRC to DEST.  */
 char *
-STRCPY (char *dest, const char *src)
+STRCPY (char *__restrict dest, const char *__restrict src)
 {
   return memcpy (dest, src, strlen (src) + 1);
 }

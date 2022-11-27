@@ -33,7 +33,7 @@
    the formats and flags needed and can handle only up to 64 stripes in
    the output.  */
 static void
-_dl_debug_vdprintf (int fd, int tag_p, const char *fmt, va_list arg)
+_dl_debug_vdprintf (int fd, int tag_p, const char *__restrict fmt, va_list arg)
 {
 # define NIOVMAX 64
   struct iovec iov[NIOVMAX];
@@ -228,7 +228,7 @@ _dl_debug_vdprintf (int fd, int tag_p, const char *fmt, va_list arg)
 
 /* Write to debug file.  */
 void
-_dl_debug_printf (const char *fmt, ...)
+_dl_debug_printf (const char *__restrict fmt, ...)
 {
   va_list arg;
 
@@ -240,7 +240,7 @@ _dl_debug_printf (const char *fmt, ...)
 
 /* Write to debug file but don't start with a tag.  */
 void
-_dl_debug_printf_c (const char *fmt, ...)
+_dl_debug_printf_c (const char *__restrict fmt, ...)
 {
   va_list arg;
 
@@ -252,7 +252,7 @@ _dl_debug_printf_c (const char *fmt, ...)
 
 /* Write the given file descriptor.  */
 void
-_dl_dprintf (int fd, const char *fmt, ...)
+_dl_dprintf (int fd, const char *__restrict fmt, ...)
 {
   va_list arg;
 
@@ -262,7 +262,7 @@ _dl_dprintf (int fd, const char *fmt, ...)
 }
 
 void
-_dl_printf (const char *fmt, ...)
+_dl_printf (const char *__restrict fmt, ...)
 {
   va_list arg;
 
@@ -272,7 +272,7 @@ _dl_printf (const char *fmt, ...)
 }
 
 void
-_dl_error_printf (const char *fmt, ...)
+_dl_error_printf (const char *__restrict fmt, ...)
 {
   va_list arg;
 
@@ -282,7 +282,7 @@ _dl_error_printf (const char *fmt, ...)
 }
 
 void
-_dl_fatal_printf (const char *fmt, ...)
+_dl_fatal_printf (const char *__restrict fmt, ...)
 {
   va_list arg;
 

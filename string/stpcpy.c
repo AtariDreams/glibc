@@ -31,7 +31,7 @@
 
 /* Copy SRC to DEST, returning the address of the terminating '\0' in DEST.  */
 char *
-STPCPY (char *dest, const char *src)
+STPCPY (char *__restrict dest, const char *__restrict src)
 {
   size_t len = strlen (src);
   return memcpy (dest, src, len + 1) + len;

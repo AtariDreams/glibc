@@ -302,8 +302,8 @@ extern int __getclktck (void) attribute_hidden;
 
 
 /* strptime support.  */
-extern char * __strptime_internal (const char *rp, const char *fmt,
-				   struct tm *tm, void *statep,
+extern char * __strptime_internal (const char *__restrictrp, const char *__restrict fmt,
+				   struct tm *__restrict tm, void *__restrict statep,
 				   locale_t locparam) attribute_hidden;
 
 #if __TIMESIZE == 64

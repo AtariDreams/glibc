@@ -25,10 +25,10 @@
 #endif
 
 void *
-MEMCPY (void *dstpp, const void *srcpp, size_t len)
+MEMCPY (void *__restrict dstpp, const void *__restrict srcpp, size_t len)
 {
-  unsigned long int dstp = (long int) dstpp;
-  unsigned long int srcp = (long int) srcpp;
+  unsigned long int dstp = (unsigned long int) dstpp;
+  unsigned long int srcp = (unsigned long int) srcpp;
 
   /* Copy from the beginning to the end.  */
 

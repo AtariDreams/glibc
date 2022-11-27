@@ -21,7 +21,7 @@
 #include <syslog.h>
 
 void
-___ieee128_syslog (int pri, const char *fmt, ...)
+___ieee128_syslog (int pri, const char *__restrict fmt, ...)
 {
   va_list ap;
 
@@ -33,14 +33,14 @@ strong_alias (___ieee128_syslog, __syslogieee128)
 hidden_def (___ieee128_syslog)
 
 void
-___ieee128_vsyslog (int pri, const char *fmt, va_list ap)
+___ieee128_vsyslog (int pri, const char *__restrict fmt, va_list ap)
 {
   __vsyslog_internal (pri, fmt, ap, PRINTF_LDBL_USES_FLOAT128);
 }
 strong_alias (___ieee128_vsyslog, __vsyslogieee128)
 
 void
-___ieee128_syslog_chk (int pri, int flag, const char *fmt, ...)
+___ieee128_syslog_chk (int pri, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
 
@@ -55,7 +55,7 @@ ___ieee128_syslog_chk (int pri, int flag, const char *fmt, ...)
 strong_alias (___ieee128_syslog_chk, __syslog_chkieee128)
 
 void
-___ieee128_vsyslog_chk (int pri, int flag, const char *fmt, va_list ap)
+___ieee128_vsyslog_chk (int pri, int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_USES_FLOAT128;
   if (flag > 0)

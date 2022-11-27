@@ -7,7 +7,7 @@
 
 int
 attribute_hidden
-sscanf (const char *s, const char *fmt, ...)
+sscanf (const char *__restrict s, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

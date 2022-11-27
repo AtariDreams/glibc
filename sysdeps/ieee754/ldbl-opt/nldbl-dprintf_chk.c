@@ -2,7 +2,7 @@
 
 attribute_hidden
 int
-__dprintf_chk (int d, int flag, const char *fmt, ...)
+__dprintf_chk (int d, int flag, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

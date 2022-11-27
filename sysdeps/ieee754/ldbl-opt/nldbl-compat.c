@@ -53,7 +53,7 @@ libc_hidden_proto (__nldbl___isoc99_vfwscanf)
 
 int
 attribute_compat_text_section
-__nldbl___asprintf (char **string_ptr, const char *fmt, ...)
+__nldbl___asprintf (char **__restrict string_ptr, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -68,7 +68,7 @@ weak_alias (__nldbl___asprintf, __nldbl_asprintf)
 
 int
 attribute_compat_text_section
-__nldbl_dprintf (int d, const char *fmt, ...)
+__nldbl_dprintf (int d, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -82,7 +82,7 @@ __nldbl_dprintf (int d, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_fprintf (FILE *stream, const char *fmt, ...)
+__nldbl_fprintf (FILE *stream, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -111,7 +111,7 @@ __nldbl_fwprintf (FILE *stream, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_printf (const char *fmt, ...)
+__nldbl_printf (const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -126,7 +126,7 @@ strong_alias (__nldbl_printf, __nldbl__IO_printf)
 
 int
 attribute_compat_text_section
-__nldbl_sprintf (char *s, const char *fmt, ...)
+__nldbl_sprintf (char *s, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -141,7 +141,7 @@ strong_alias (__nldbl_sprintf, __nldbl__IO_sprintf)
 
 int
 attribute_compat_text_section
-__nldbl_vfprintf (FILE *s, const char *fmt, va_list ap)
+__nldbl_vfprintf (FILE *__restrict s, const char *__restrict fmt, va_list ap)
 {
   return __vfprintf_internal (s, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
@@ -149,7 +149,7 @@ strong_alias (__nldbl_vfprintf, __nldbl__IO_vfprintf)
 
 int
 attribute_compat_text_section
-__nldbl___vsprintf (char *string, const char *fmt, va_list ap)
+__nldbl___vsprintf (char *__restrict string, const char *__restrict fmt, va_list ap)
 {
   return __vsprintf_internal (string, -1, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
@@ -158,7 +158,7 @@ weak_alias (__nldbl___vsprintf, __nldbl_vsprintf)
 
 int
 attribute_compat_text_section
-__nldbl_obstack_vprintf (struct obstack *obstack, const char *fmt,
+__nldbl_obstack_vprintf (struct obstack *obstack, const char *__restrict fmt,
 			 va_list ap)
 {
   return __obstack_vprintf_internal (obstack, fmt, ap, PRINTF_LDBL_IS_DBL);
@@ -166,7 +166,7 @@ __nldbl_obstack_vprintf (struct obstack *obstack, const char *fmt,
 
 int
 attribute_compat_text_section
-__nldbl_obstack_printf (struct obstack *obstack, const char *fmt, ...)
+__nldbl_obstack_printf (struct obstack *obstack, const char *__restrict fmt, ...)
 {
   int ret;
   va_list ap;
@@ -178,7 +178,7 @@ __nldbl_obstack_printf (struct obstack *obstack, const char *fmt, ...)
 
 int
 attribute_compat_text_section weak_function
-__nldbl_snprintf (char *s, size_t maxlen, const char *fmt, ...)
+__nldbl_snprintf (char *__restrict s, size_t maxlen, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -192,7 +192,7 @@ __nldbl_snprintf (char *s, size_t maxlen, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_swprintf (wchar_t *s, size_t n, const wchar_t *fmt, ...)
+__nldbl_swprintf (wchar_t *__restrict s, size_t n, const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -206,35 +206,35 @@ __nldbl_swprintf (wchar_t *s, size_t n, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section weak_function
-__nldbl_vasprintf (char **result_ptr, const char *fmt, va_list ap)
+__nldbl_vasprintf (char **__restrict result_ptr, const char *__restrict fmt, va_list ap)
 {
   return __vasprintf_internal (result_ptr, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_vdprintf (int d, const char *fmt, va_list ap)
+__nldbl_vdprintf (int d, const char *__restrict fmt, va_list ap)
 {
   return __vdprintf_internal (d, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section weak_function
-__nldbl_vfwprintf (FILE *s, const wchar_t *fmt, va_list ap)
+__nldbl_vfwprintf (FILE *__restrict s, const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwprintf_internal (s, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_vprintf (const char *fmt, va_list ap)
+__nldbl_vprintf (const char *__restrict fmt, va_list ap)
 {
   return __vfprintf_internal (stdout, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_vsnprintf (char *string, size_t maxlen, const char *fmt,
+__nldbl_vsnprintf (char *__restrict string, size_t maxlen, const char *__restrict fmt,
 		   va_list ap)
 {
   return __vsnprintf_internal (string, maxlen, fmt, ap, PRINTF_LDBL_IS_DBL);
@@ -243,7 +243,7 @@ weak_alias (__nldbl_vsnprintf, __nldbl___vsnprintf)
 
 int
 attribute_compat_text_section weak_function
-__nldbl_vswprintf (wchar_t *string, size_t maxlen, const wchar_t *fmt,
+__nldbl_vswprintf (wchar_t *__restrict string, size_t maxlen, const wchar_t *__restrict fmt,
 		   va_list ap)
 {
   return __vswprintf_internal (string, maxlen, fmt, ap, PRINTF_LDBL_IS_DBL);
@@ -251,14 +251,14 @@ __nldbl_vswprintf (wchar_t *string, size_t maxlen, const wchar_t *fmt,
 
 int
 attribute_compat_text_section
-__nldbl_vwprintf (const wchar_t *fmt, va_list ap)
+__nldbl_vwprintf (const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwprintf_internal (stdout, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_wprintf (const wchar_t *fmt, ...)
+__nldbl_wprintf (const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -273,7 +273,7 @@ __nldbl_wprintf (const wchar_t *fmt, ...)
 #if SHLIB_COMPAT (libc, GLIBC_2_0, GLIBC_2_29)
 int
 attribute_compat_text_section
-__nldbl__IO_vfscanf (FILE *s, const char *fmt, va_list ap, int *errp)
+__nldbl__IO_vfscanf (FILE *__restrict , const char *__restrict fmt, va_list ap, int *errp)
 {
   int ret = __vfscanf_internal (s, fmt, ap, SCANF_LDBL_IS_DBL);
   if (__glibc_unlikely (errp != 0))
@@ -284,7 +284,7 @@ __nldbl__IO_vfscanf (FILE *s, const char *fmt, va_list ap, int *errp)
 
 int
 attribute_compat_text_section
-__nldbl___vfscanf (FILE *s, const char *fmt, va_list ap)
+__nldbl___vfscanf (FILE *__restrict s, const char *__restrict fmt, va_list ap)
 {
   return __vfscanf_internal (s, fmt, ap, SCANF_LDBL_IS_DBL);
 }
@@ -293,7 +293,7 @@ libc_hidden_def (__nldbl_vfscanf)
 
 int
 attribute_compat_text_section
-__nldbl_sscanf (const char *s, const char *fmt, ...)
+__nldbl_sscanf (const char *__restrict s, const char *__restrict fmt, ...)
 {
   _IO_strfile sf;
   FILE *f = _IO_strfile_read (&sf, s);
@@ -310,7 +310,7 @@ strong_alias (__nldbl_sscanf, __nldbl__IO_sscanf)
 
 int
 attribute_compat_text_section
-__nldbl___vsscanf (const char *s, const char *fmt, va_list ap)
+__nldbl___vsscanf (const char *__restrict s, const char *__restrict fmt, va_list ap)
 {
   _IO_strfile sf;
   FILE *f = _IO_strfile_read (&sf, s);
@@ -321,14 +321,14 @@ libc_hidden_def (__nldbl_vsscanf)
 
 int
 attribute_compat_text_section weak_function
-__nldbl_vscanf (const char *fmt, va_list ap)
+__nldbl_vscanf (const char *__restrict fmt, va_list ap)
 {
   return __vfscanf_internal (stdin, fmt, ap, SCANF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_fscanf (FILE *stream, const char *fmt, ...)
+__nldbl_fscanf (FILE *__restrict stream, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -342,7 +342,7 @@ __nldbl_fscanf (FILE *stream, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_scanf (const char *fmt, ...)
+__nldbl_scanf (const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -356,7 +356,7 @@ __nldbl_scanf (const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_vfwscanf (FILE *s, const wchar_t *fmt, va_list ap)
+__nldbl_vfwscanf (FILE *__restrict s, const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwscanf_internal (s, fmt, ap, SCANF_LDBL_IS_DBL);
 }
@@ -364,7 +364,7 @@ libc_hidden_def (__nldbl_vfwscanf)
 
 int
 attribute_compat_text_section
-__nldbl_swscanf (const wchar_t *s, const wchar_t *fmt, ...)
+__nldbl_swscanf (const wchar_t *__restrict s, const wchar_t *__restrict fmt, ...)
 {
   _IO_strfile sf;
   struct _IO_wide_data wd;
@@ -381,7 +381,7 @@ __nldbl_swscanf (const wchar_t *s, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_vswscanf (const wchar_t *s, const wchar_t *fmt, va_list ap)
+__nldbl_vswscanf (const wchar_t *__restrict s, const wchar_t *__restrict fmt, va_list ap)
 {
   _IO_strfile sf;
   struct _IO_wide_data wd;
@@ -393,14 +393,14 @@ libc_hidden_def (__nldbl_vswscanf)
 
 int
 attribute_compat_text_section weak_function
-__nldbl_vwscanf (const wchar_t *fmt, va_list ap)
+__nldbl_vwscanf (const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwscanf_internal (stdin, fmt, ap, SCANF_LDBL_IS_DBL);
 }
 
 int
 attribute_compat_text_section
-__nldbl_fwscanf (FILE *stream, const wchar_t *fmt, ...)
+__nldbl_fwscanf (FILE *__restrict stream, const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -414,7 +414,7 @@ __nldbl_fwscanf (FILE *stream, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl_wscanf (const wchar_t *fmt, ...)
+__nldbl_wscanf (const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -428,7 +428,7 @@ __nldbl_wscanf (const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___fprintf_chk (FILE *stream, int flag, const char *fmt, ...)
+__nldbl___fprintf_chk (FILE *__restrict stream, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -445,7 +445,7 @@ __nldbl___fprintf_chk (FILE *stream, int flag, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___fwprintf_chk (FILE *stream, int flag, const wchar_t *fmt, ...)
+__nldbl___fwprintf_chk (FILE *__restrict stream, int flag, const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -462,7 +462,7 @@ __nldbl___fwprintf_chk (FILE *stream, int flag, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___printf_chk (int flag, const char *fmt, ...)
+__nldbl___printf_chk (int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -479,8 +479,8 @@ __nldbl___printf_chk (int flag, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___snprintf_chk (char *s, size_t maxlen, int flag, size_t slen,
-			const char *fmt, ...)
+__nldbl___snprintf_chk (char *__restrict s, size_t maxlen, int flag, size_t slen,
+			const char *__restrict fmt, ...)
 {
   if (__glibc_unlikely (slen < maxlen))
     __chk_fail ();
@@ -500,7 +500,7 @@ __nldbl___snprintf_chk (char *s, size_t maxlen, int flag, size_t slen,
 
 int
 attribute_compat_text_section
-__nldbl___sprintf_chk (char *s, int flag, size_t slen, const char *fmt, ...)
+__nldbl___sprintf_chk (char *__restrict s, int flag, size_t slen, const char *__restrict fmt, ...)
 {
   if (slen == 0)
     __chk_fail ();
@@ -520,8 +520,8 @@ __nldbl___sprintf_chk (char *s, int flag, size_t slen, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___swprintf_chk (wchar_t *s, size_t maxlen, int flag, size_t slen,
-			const wchar_t *fmt, ...)
+__nldbl___swprintf_chk (wchar_t *__restrict s, size_t maxlen, int flag, size_t slen,
+			const wchar_t *__restrict fmt, ...)
 {
   if (__glibc_unlikely (slen < maxlen))
     __chk_fail ();
@@ -541,7 +541,7 @@ __nldbl___swprintf_chk (wchar_t *s, size_t maxlen, int flag, size_t slen,
 
 int
 attribute_compat_text_section
-__nldbl___vfprintf_chk (FILE *s, int flag, const char *fmt, va_list ap)
+__nldbl___vfprintf_chk (FILE *__restrict s, int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -552,7 +552,7 @@ __nldbl___vfprintf_chk (FILE *s, int flag, const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___vfwprintf_chk (FILE *s, int flag, const wchar_t *fmt, va_list ap)
+__nldbl___vfwprintf_chk (FILE *__restrict s, int flag, const wchar_t *fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -563,7 +563,7 @@ __nldbl___vfwprintf_chk (FILE *s, int flag, const wchar_t *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___vprintf_chk (int flag, const char *fmt, va_list ap)
+__nldbl___vprintf_chk (int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -574,8 +574,8 @@ __nldbl___vprintf_chk (int flag, const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___vsnprintf_chk (char *string, size_t maxlen, int flag, size_t slen,
-			 const char *fmt, va_list ap)
+__nldbl___vsnprintf_chk (char *__restrict string, size_t maxlen, int flag, size_t slen,
+			 const char *__restrict fmt, va_list ap)
 {
   if (__glibc_unlikely (slen < maxlen))
     __chk_fail ();
@@ -589,7 +589,7 @@ __nldbl___vsnprintf_chk (char *string, size_t maxlen, int flag, size_t slen,
 
 int
 attribute_compat_text_section
-__nldbl___vsprintf_chk (char *string, int flag, size_t slen, const char *fmt,
+__nldbl___vsprintf_chk (char *__restrict string, int flag, size_t slen, const char *__restrict fmt,
 			va_list ap)
 {
   if (slen == 0)
@@ -604,8 +604,8 @@ __nldbl___vsprintf_chk (char *string, int flag, size_t slen, const char *fmt,
 
 int
 attribute_compat_text_section
-__nldbl___vswprintf_chk (wchar_t *string, size_t maxlen, int flag, size_t slen,
-			 const wchar_t *fmt, va_list ap)
+__nldbl___vswprintf_chk (wchar_t *__restrict string, size_t maxlen, int flag, size_t slen,
+			 const wchar_t *__restrict fmt, va_list ap)
 {
   if (__glibc_unlikely (slen < maxlen))
     __chk_fail ();
@@ -619,7 +619,7 @@ __nldbl___vswprintf_chk (wchar_t *string, size_t maxlen, int flag, size_t slen,
 
 int
 attribute_compat_text_section
-__nldbl___vwprintf_chk (int flag, const wchar_t *fmt, va_list ap)
+__nldbl___vwprintf_chk (int flag, const wchar_t *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -630,7 +630,7 @@ __nldbl___vwprintf_chk (int flag, const wchar_t *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___wprintf_chk (int flag, const wchar_t *fmt, ...)
+__nldbl___wprintf_chk (int flag, const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -647,7 +647,7 @@ __nldbl___wprintf_chk (int flag, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___vasprintf_chk (char **ptr, int flag, const char *fmt, va_list ap)
+__nldbl___vasprintf_chk (char **__restrict ptr, int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -658,7 +658,7 @@ __nldbl___vasprintf_chk (char **ptr, int flag, const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___asprintf_chk (char **ptr, int flag, const char *fmt, ...)
+__nldbl___asprintf_chk (char **__restrict ptr, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -675,7 +675,7 @@ __nldbl___asprintf_chk (char **ptr, int flag, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___vdprintf_chk (int d, int flag, const char *fmt, va_list ap)
+__nldbl___vdprintf_chk (int d, int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -686,7 +686,7 @@ __nldbl___vdprintf_chk (int d, int flag, const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___dprintf_chk (int d, int flag, const char *fmt, ...)
+__nldbl___dprintf_chk (int d, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -704,7 +704,7 @@ __nldbl___dprintf_chk (int d, int flag, const char *fmt, ...)
 int
 attribute_compat_text_section
 __nldbl___obstack_vprintf_chk (struct obstack *obstack, int flag,
-			       const char *fmt, va_list ap)
+			       const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -716,7 +716,7 @@ __nldbl___obstack_vprintf_chk (struct obstack *obstack, int flag,
 int
 attribute_compat_text_section
 __nldbl___obstack_printf_chk (struct obstack *obstack, int flag,
-			      const char *fmt, ...)
+			      const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -759,7 +759,7 @@ __nldbl___printf_fp (FILE *fp, const struct printf_info *info,
 
 ssize_t
 attribute_compat_text_section
-__nldbl_strfmon (char *s, size_t maxsize, const char *format, ...)
+__nldbl_strfmon (char *__restrict s, size_t maxsize, const char *__restrict format, ...)
 {
   va_list ap;
   ssize_t ret;
@@ -773,8 +773,8 @@ __nldbl_strfmon (char *s, size_t maxsize, const char *format, ...)
 
 ssize_t
 attribute_compat_text_section
-__nldbl___strfmon_l (char *s, size_t maxsize, locale_t loc,
-		     const char *format, ...)
+__nldbl___strfmon_l (char *__restrict s, size_t maxsize, locale_t loc,
+		     const char *__restrict format, ...)
 {
   va_list ap;
   ssize_t ret;
@@ -789,7 +789,7 @@ weak_alias (__nldbl___strfmon_l, __nldbl_strfmon_l)
 
 ssize_t
 attribute_compat_text_section
-__nldbl___vstrfmon (char *s, size_t maxsize, const char *format, va_list ap)
+__nldbl___vstrfmon (char *__restrict s, size_t maxsize, const char *__restrict format, va_list ap)
 {
   return __vstrfmon_l_internal (s, maxsize, _NL_CURRENT_LOCALE, format, ap,
 				STRFMON_LDBL_IS_DBL);
@@ -797,8 +797,8 @@ __nldbl___vstrfmon (char *s, size_t maxsize, const char *format, va_list ap)
 
 ssize_t
 attribute_compat_text_section
-__nldbl___vstrfmon_l (char *s, size_t maxsize, locale_t loc,
-		      const char *format, va_list ap)
+__nldbl___vstrfmon_l (char *__restrict s, size_t maxsize, locale_t loc,
+		      const char *__restrict format, va_list ap)
 {
   return __vstrfmon_l_internal (s, maxsize, loc, format, ap,
 				STRFMON_LDBL_IS_DBL);
@@ -806,7 +806,7 @@ __nldbl___vstrfmon_l (char *s, size_t maxsize, locale_t loc,
 
 void
 attribute_compat_text_section
-__nldbl_syslog (int pri, const char *fmt, ...)
+__nldbl_syslog (int pri, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -816,14 +816,14 @@ __nldbl_syslog (int pri, const char *fmt, ...)
 
 void
 attribute_compat_text_section
-__nldbl_vsyslog (int pri, const char *fmt, va_list ap)
+__nldbl_vsyslog (int pri, const char *__restrict fmt, va_list ap)
 {
   __vsyslog_internal (pri, fmt, ap, PRINTF_LDBL_IS_DBL);
 }
 
 void
 attribute_compat_text_section
-__nldbl___syslog_chk (int pri, int flag, const char *fmt, ...)
+__nldbl___syslog_chk (int pri, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
   unsigned int mode = PRINTF_LDBL_IS_DBL;
@@ -837,7 +837,7 @@ __nldbl___syslog_chk (int pri, int flag, const char *fmt, ...)
 
 void
 attribute_compat_text_section
-__nldbl___vsyslog_chk (int pri, int flag, const char *fmt, va_list ap)
+__nldbl___vsyslog_chk (int pri, int flag, const char *__restrict fmt, va_list ap)
 {
   unsigned int mode = PRINTF_LDBL_IS_DBL;
   if (flag > 0)
@@ -848,7 +848,7 @@ __nldbl___vsyslog_chk (int pri, int flag, const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vfscanf (FILE *s, const char *fmt, va_list ap)
+__nldbl___isoc99_vfscanf (FILE *s, const char *__restrict fmt, va_list ap)
 {
   return __vfscanf_internal (s, fmt, ap, SCANF_LDBL_IS_DBL | SCANF_ISOC99_A);
 }
@@ -856,7 +856,7 @@ libc_hidden_def (__nldbl___isoc99_vfscanf)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_sscanf (const char *s, const char *fmt, ...)
+__nldbl___isoc99_sscanf (const char *s, const char *__restrict fmt, ...)
 {
   _IO_strfile sf;
   FILE *f = _IO_strfile_read (&sf, s);
@@ -872,7 +872,7 @@ __nldbl___isoc99_sscanf (const char *s, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vsscanf (const char *s, const char *fmt, va_list ap)
+__nldbl___isoc99_vsscanf (const char *__restrict s, const char *__restrict fmt, va_list ap)
 {
   _IO_strfile sf;
   FILE *f = _IO_strfile_read (&sf, s);
@@ -883,7 +883,7 @@ libc_hidden_def (__nldbl___isoc99_vsscanf)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vscanf (const char *fmt, va_list ap)
+__nldbl___isoc99_vscanf (const char *__restrict fmt, va_list ap)
 {
   return __vfscanf_internal (stdin, fmt, ap,
 			     SCANF_LDBL_IS_DBL | SCANF_ISOC99_A);
@@ -891,7 +891,7 @@ __nldbl___isoc99_vscanf (const char *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_fscanf (FILE *s, const char *fmt, ...)
+__nldbl___isoc99_fscanf (FILE *__restrict s, const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -905,7 +905,7 @@ __nldbl___isoc99_fscanf (FILE *s, const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_scanf (const char *fmt, ...)
+__nldbl___isoc99_scanf (const char *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -920,7 +920,7 @@ __nldbl___isoc99_scanf (const char *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vfwscanf (FILE *s, const wchar_t *fmt, va_list ap)
+__nldbl___isoc99_vfwscanf (FILE *__restrict s, const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwscanf_internal (s, fmt, ap, SCANF_LDBL_IS_DBL | SCANF_ISOC99_A);
 }
@@ -928,7 +928,7 @@ libc_hidden_def (__nldbl___isoc99_vfwscanf)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_swscanf (const wchar_t *s, const wchar_t *fmt, ...)
+__nldbl___isoc99_swscanf (const wchar_t *__restrict s, const wchar_t *__restrict fmt, ...)
 {
   _IO_strfile sf;
   struct _IO_wide_data wd;
@@ -945,7 +945,7 @@ __nldbl___isoc99_swscanf (const wchar_t *s, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vswscanf (const wchar_t *s, const wchar_t *fmt, va_list ap)
+__nldbl___isoc99_vswscanf (const wchar_t *__restrict s, const wchar_t *__restrict fmt, va_list ap)
 {
   _IO_strfile sf;
   struct _IO_wide_data wd;
@@ -957,7 +957,7 @@ libc_hidden_def (__nldbl___isoc99_vswscanf)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_vwscanf (const wchar_t *fmt, va_list ap)
+__nldbl___isoc99_vwscanf (const wchar_t *__restrict fmt, va_list ap)
 {
   return __vfwscanf_internal (stdin, fmt, ap,
 			     SCANF_LDBL_IS_DBL | SCANF_ISOC99_A);
@@ -965,7 +965,7 @@ __nldbl___isoc99_vwscanf (const wchar_t *fmt, va_list ap)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_fwscanf (FILE *s, const wchar_t *fmt, ...)
+__nldbl___isoc99_fwscanf (FILE *__restrict s, const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -979,7 +979,7 @@ __nldbl___isoc99_fwscanf (FILE *s, const wchar_t *fmt, ...)
 
 int
 attribute_compat_text_section
-__nldbl___isoc99_wscanf (const wchar_t *fmt, ...)
+__nldbl___isoc99_wscanf (const wchar_t *__restrict fmt, ...)
 {
   va_list ap;
   int ret;
@@ -993,7 +993,7 @@ __nldbl___isoc99_wscanf (const wchar_t *fmt, ...)
 }
 
 void
-__nldbl_argp_error (const struct argp_state *state, const char *fmt, ...)
+__nldbl_argp_error (const struct argp_state *state, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -1003,7 +1003,7 @@ __nldbl_argp_error (const struct argp_state *state, const char *fmt, ...)
 
 void
 __nldbl_argp_failure (const struct argp_state *state, int status,
-			int errnum, const char *fmt, ...)
+			int errnum, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -1021,53 +1021,53 @@ __nldbl_argp_failure (const struct argp_state *state, int status,
 }
 
 void
-__nldbl_err (int status, const char *format, ...)
+__nldbl_err (int status, const char *__restrict format, ...)
 {
   VA_CALL (__vwarn_internal)
   exit (status);
 }
 
 void
-__nldbl_errx (int status, const char *format, ...)
+__nldbl_errx (int status, const char *__restrict format, ...)
 {
   VA_CALL (__vwarnx_internal)
   exit (status);
 }
 
 void
-__nldbl_verr (int status, const char *format, __gnuc_va_list ap)
+__nldbl_verr (int status, const char *__restrict format, __gnuc_va_list ap)
 {
   __vwarn_internal (format, ap, PRINTF_LDBL_IS_DBL);
   exit (status);
 }
 
 void
-__nldbl_verrx (int status, const char *format, __gnuc_va_list ap)
+__nldbl_verrx (int status, const char *__restrict format, __gnuc_va_list ap)
 {
   __vwarnx_internal (format, ap, PRINTF_LDBL_IS_DBL);
   exit (status);
 }
 
 void
-__nldbl_warn (const char *format, ...)
+__nldbl_warn (const char *__restrict format, ...)
 {
   VA_CALL (__vwarn_internal)
 }
 
 void
-__nldbl_warnx (const char *format, ...)
+__nldbl_warnx (const char *__restrict format, ...)
 {
   VA_CALL (__vwarnx_internal)
 }
 
 void
-__nldbl_vwarn (const char *format, __gnuc_va_list ap)
+__nldbl_vwarn (const char *__restrict format, __gnuc_va_list ap)
 {
   __vwarn_internal (format, ap, PRINTF_LDBL_IS_DBL);
 }
 
 void
-__nldbl_vwarnx (const char *format, __gnuc_va_list ap)
+__nldbl_vwarnx (const char *__restrict format, __gnuc_va_list ap)
 {
   __vwarnx_internal (format, ap, PRINTF_LDBL_IS_DBL);
 }

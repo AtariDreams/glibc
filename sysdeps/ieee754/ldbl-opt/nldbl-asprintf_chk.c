@@ -2,7 +2,7 @@
 
 attribute_hidden
 int
-__asprintf_chk (char **string_ptr, int flag, const char *fmt, ...)
+__asprintf_chk (char **__restrict string_ptr, int flag, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

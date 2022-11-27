@@ -44,7 +44,7 @@ static void rfg3 (void);
 
 
 static void
-fmtchk (const char *fmt)
+fmtchk (const char *__restrict fmt)
 {
   (void) fputs(fmt, stdout);
   (void) printf(":\t`");
@@ -53,7 +53,7 @@ fmtchk (const char *fmt)
 }
 
 static void
-fmtst1chk (const char *fmt)
+fmtst1chk (const char *__restrict fmt)
 {
   (void) fputs(fmt, stdout);
   (void) printf(":\t`");
@@ -62,7 +62,7 @@ fmtst1chk (const char *fmt)
 }
 
 static void
-fmtst2chk (const char *fmt)
+fmtst2chk (const char *__restrict fmt)
 {
   (void) fputs(fmt, stdout);
   (void) printf(":\t`");

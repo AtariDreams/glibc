@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-__isoc99_fscanf (FILE *stream, const char *fmt, ...)
+__isoc99_fscanf (FILE *__restrict stream, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

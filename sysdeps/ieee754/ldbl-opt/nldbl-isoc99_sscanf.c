@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-__isoc99_sscanf (const char *s, const char *fmt, ...)
+__isoc99_sscanf (const char *__restrict s, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

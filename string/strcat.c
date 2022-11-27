@@ -25,7 +25,7 @@
 
 /* Append SRC on the end of DEST.  */
 char *
-STRCAT (char *dest, const char *src)
+STRCAT (char *__restrict dest, const char *__restrict src)
 {
   strcpy (dest + strlen (dest), src);
   return dest;

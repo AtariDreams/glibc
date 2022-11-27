@@ -79,7 +79,7 @@ adjust_message_buffer (struct dl_exception *exception)
 }
 
 void
-_dl_exception_create (struct dl_exception *exception, const char *objname,
+_dl_exception_create (struct dl_exception *exception, const char *__restrict objname,
                       const char *errstring)
 {
   if (objname == NULL)
@@ -102,8 +102,8 @@ _dl_exception_create (struct dl_exception *exception, const char *objname,
 rtld_hidden_def (_dl_exception_create)
 
 void
-_dl_exception_create_format (struct dl_exception *exception, const char *objname,
-                             const char *fmt, ...)
+_dl_exception_create_format (struct dl_exception *exception, const char *__restrict objname,
+                             const char *__restrict fmt, ...)
 {
   if (objname == NULL)
     objname = "";

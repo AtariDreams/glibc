@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-vfprintf (FILE *s, const char *fmt, va_list ap)
+vfprintf (FILE *__restrict s, const char *__restrict fmt, va_list ap)
 {
   return __nldbl_vfprintf (s, fmt, ap);
 }

@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-__obstack_printf_chk (struct obstack *obstack, int flag, const char *fmt, ...)
+__obstack_printf_chk (struct obstack *obstack, int flag, const char *__restrict fmt, ...)
 {
   int result;
   va_list ap;

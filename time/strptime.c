@@ -27,7 +27,7 @@
 
 
 char *
-strptime (const char *buf, const char *format, struct tm *tm)
+strptime (const char *__restrict buf, const char *__restrict format, struct tm *__restrict tm)
 {
   return __strptime_internal (buf, format, tm, NULL, _NL_CURRENT_LOCALE);
 }

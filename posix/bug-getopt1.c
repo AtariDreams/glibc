@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 static int
-one_test (const char *fmt, int argc, char *argv[], int expected[argc - 1])
+one_test (const char *__restrict fmt, int argc, char *argv[], int expected[argc - 1])
 {
   optind = 1;
 

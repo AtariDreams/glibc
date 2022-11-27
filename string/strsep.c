@@ -21,7 +21,7 @@
 #undef strsep
 
 char *
-__strsep (char **stringp, const char *delim)
+__strsep (char **__restrict stringp, const char *__restrict delim)
 {
   char *begin, *end;
 

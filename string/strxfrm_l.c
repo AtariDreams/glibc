@@ -441,7 +441,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 			  len = weights[idxarr[backw]++];
 
 			  if (needed + len < n)
-			    while (len-- > 0)
+			    for (; len; --len)
 			      dest[needed++] = weights[idxarr[backw]++];
 			  else
 			    {
@@ -457,7 +457,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 		  /* Now handle the forward element.  */
 		  len = weights[idxarr[idxcnt]++];
 		  if (needed + len < n)
-		    while (len-- > 0)
+		    for (; len; --len)
 		      dest[needed++] = weights[idxarr[idxcnt]++];
 		  else
 		    {
@@ -488,7 +488,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 		  size_t len = weights[idxarr[--backw]++];
 
 		  if (needed + len < n)
-		    while (len-- > 0)
+		    for (; len; --len)
 		      dest[needed++] = weights[idxarr[backw]++];
 		  else
 		    {
@@ -664,7 +664,7 @@ do_xfrm_cached (STRING_TYPE *dest, size_t n, const locale_data_t *l_data,
 }
 
 size_t
-STRXFRM (STRING_TYPE *dest, const STRING_TYPE *src, size_t n, locale_t l)
+STRXFRM (STRING_TYPE *__restrict dest, const STRING_TYPE *__restrict src, size_t n, locale_t l)
 {
   locale_data_t l_data;
   struct __locale_data *current = l->__locales[LC_COLLATE];

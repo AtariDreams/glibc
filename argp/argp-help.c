@@ -1863,7 +1863,7 @@ weak_alias (__argp_state_help, argp_state_help)
    by the program name and `:', to stderr, and followed by a `Try ... --help'
    message, then exit (1).  */
 void
-__argp_error_internal (const struct argp_state *state, const char *fmt,
+__argp_error_internal (const struct argp_state *state, const char *__restrict fmt,
 		       va_list ap, unsigned int mode_flags)
 {
   if (!state || !(state->flags & ARGP_NO_ERRS))
@@ -1906,7 +1906,7 @@ __argp_error_internal (const struct argp_state *state, const char *fmt,
     }
 }
 void
-__argp_error (const struct argp_state *state, const char *fmt, ...)
+__argp_error (const struct argp_state *state, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -1927,7 +1927,7 @@ weak_alias (__argp_error, argp_error)
    parsing but don't reflect a (syntactic) problem with the input.  */
 void
 __argp_failure_internal (const struct argp_state *state, int status,
-			 int errnum, const char *fmt, va_list ap,
+			 int errnum, const char *__restrict fmt, va_list ap,
 			 unsigned int mode_flags)
 {
   if (!state || !(state->flags & ARGP_NO_ERRS))
@@ -2003,7 +2003,7 @@ __argp_failure_internal (const struct argp_state *state, int status,
 }
 void
 __argp_failure (const struct argp_state *state, int status, int errnum,
-		const char *fmt, ...)
+		const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);

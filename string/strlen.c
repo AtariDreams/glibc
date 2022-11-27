@@ -33,6 +33,9 @@ STRLEN (const char *str)
   const unsigned long int *longword_ptr;
   unsigned long int longword, himagic, lomagic;
 
+  if (sizeof (longword) > 8)
+    abort ();
+
   /* Handle the first few characters by reading one character at a time.
      Do this until CHAR_PTR is aligned on a longword boundary.  */
   for (char_ptr = str; ((unsigned long int) char_ptr
@@ -59,8 +62,6 @@ STRLEN (const char *str)
       himagic = ((himagic << 16) << 16) | himagic;
       lomagic = ((lomagic << 16) << 16) | lomagic;
     }
-  if (sizeof (longword) > 8)
-    abort ();
 
   /* Instead of the traditional loop which tests each character,
      we will test a longword at a time.  The tricky part is testing

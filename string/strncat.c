@@ -24,7 +24,7 @@
 #endif
 
 char *
-STRNCAT (char *s1, const char *s2, size_t n)
+STRNCAT (char *__restrict s1, const char *__restrict s2, size_t n)
 {
   char *s = s1;
 

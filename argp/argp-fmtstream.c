@@ -397,7 +397,7 @@ __argp_fmtstream_ensure (struct argp_fmtstream *fs, size_t amount)
 }
 
 ssize_t
-__argp_fmtstream_printf (struct argp_fmtstream *fs, const char *fmt, ...)
+__argp_fmtstream_printf (struct argp_fmtstream *fs, const char *__restrict fmt, ...)
 {
   int out;
   size_t avail;

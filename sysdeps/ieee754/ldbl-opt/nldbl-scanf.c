@@ -7,7 +7,7 @@
 
 int
 attribute_hidden
-scanf (const char *fmt, ...)
+scanf (const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

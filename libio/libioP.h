@@ -678,7 +678,7 @@ extern int __vasprintf_internal (char **result_ptr, const char *format,
 extern int __vdprintf_internal (int d, const char *format, va_list ap,
 				unsigned int mode_flags)
     attribute_hidden;
-extern int __obstack_vprintf_internal (struct obstack *ob, const char *fmt,
+extern int __obstack_vprintf_internal (struct obstack *ob, const char *__restrict fmt,
 				       va_list ap, unsigned int mode_flags)
     attribute_hidden;
 

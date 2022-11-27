@@ -28,7 +28,7 @@
 		// s = "abc\0=-def\0"
 */
 char *
-strtok (char *s, const char *delim)
+strtok (char *__restrict s, const char *__restrict delim)
 {
   static char *olds;
   return __strtok_r (s, delim, &olds);

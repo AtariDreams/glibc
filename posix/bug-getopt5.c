@@ -12,7 +12,7 @@ static const struct option opts[] =
   };
 
 static int
-one_test (const char *fmt, int argc, char *argv[], int n, int expected[n])
+one_test (const char *__restrict fmt, int argc, char *argv[], int n, int expected[n])
 {
   optind = 1;
 

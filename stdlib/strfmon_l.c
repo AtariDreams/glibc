@@ -76,8 +76,8 @@
    too.  Some of the information contradicts the information which can
    be specified in format string.  */
 ssize_t
-__vstrfmon_l_internal (char *s, size_t maxsize, locale_t loc,
-		       const char *format, va_list ap, unsigned int flags)
+__vstrfmon_l_internal (char *__restrict s, size_t maxsize, locale_t loc,
+		       const char *__restrict format, va_list ap, unsigned int flags)
 {
   struct __locale_data *current = loc->__locales[LC_MONETARY];
   _IO_strfile f;
@@ -624,7 +624,7 @@ __vstrfmon_l_internal (char *s, size_t maxsize, locale_t loc,
 }
 
 ssize_t
-___strfmon_l (char *s, size_t maxsize, locale_t loc, const char *format, ...)
+___strfmon_l (char *__restrict s, size_t maxsize, locale_t loc, const char *__restrict format, ...)
 {
   va_list ap;
 

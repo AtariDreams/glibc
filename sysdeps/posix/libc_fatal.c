@@ -54,7 +54,7 @@ struct str_list
 
 /* Abort with an error message.  */
 void
-__libc_message (const char *fmt, ...)
+__libc_message (const char *__restrict fmt, ...)
 {
   va_list ap;
   int fd = -1;

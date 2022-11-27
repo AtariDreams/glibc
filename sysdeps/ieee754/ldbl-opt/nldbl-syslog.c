@@ -2,7 +2,7 @@
 
 void
 attribute_hidden
-syslog (int pri, const char *fmt, ...)
+syslog (int pri, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);

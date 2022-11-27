@@ -82,7 +82,7 @@ cancel_handler (void *ptr)
  *	print message on log file; output is intended for syslogd(8).
  */
 void
-__syslog (int pri, const char *fmt, ...)
+__syslog (int pri, const char *__restrict fmt, ...)
 {
   va_list ap;
 
@@ -94,14 +94,14 @@ ldbl_hidden_def (__syslog, syslog)
 ldbl_strong_alias (__syslog, syslog)
 
 void
-__vsyslog (int pri, const char *fmt, va_list ap)
+__vsyslog (int pri, const char *__restrict fmt, va_list ap)
 {
   __vsyslog_internal (pri, fmt, ap, 0);
 }
 ldbl_weak_alias (__vsyslog, vsyslog)
 
 void
-__syslog_chk (int pri, int flag, const char *fmt, ...)
+__syslog_chk (int pri, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
 
@@ -111,13 +111,13 @@ __syslog_chk (int pri, int flag, const char *fmt, ...)
 }
 
 void
-__vsyslog_chk (int pri, int flag, const char *fmt, va_list ap)
+__vsyslog_chk (int pri, int flag, const char *__restrict fmt, va_list ap)
 {
   __vsyslog_internal (pri, fmt, ap, (flag > 0) ? PRINTF_FORTIFY : 0);
 }
 
 void
-__vsyslog_internal (int pri, const char *fmt, va_list ap,
+__vsyslog_internal (int pri, const char *__restrict fmt, va_list ap,
 		    unsigned int mode_flags)
 {
   /* Try to use a static buffer as an optimization.  */

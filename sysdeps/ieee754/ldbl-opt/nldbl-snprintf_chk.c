@@ -2,8 +2,8 @@
 
 int
 attribute_hidden
-__snprintf_chk (char *s, size_t maxlen, int flag, size_t slen,
-		const char *fmt, ...)
+__snprintf_chk (char *__restrict s, size_t maxlen, int flag, size_t slen,
+		const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

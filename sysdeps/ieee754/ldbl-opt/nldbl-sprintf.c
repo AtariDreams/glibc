@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-sprintf (char *s, const char *fmt, ...)
+sprintf (char *__restrict s, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

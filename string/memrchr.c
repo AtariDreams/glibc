@@ -63,9 +63,8 @@ MEMRCHR
   const unsigned char *char_ptr;
   const unsigned long int *longword_ptr;
   unsigned long int longword, magic_bits, charmask;
-  unsigned char c;
 
-  c = (unsigned char) c_in;
+  const unsigned char c = (const unsigned char) c_in;
 
   /* Handle the last few characters by reading one character at a time.
      Do this until CHAR_PTR is aligned on a longword boundary.  */
@@ -182,7 +181,7 @@ MEMRCHR
 
   char_ptr = (const unsigned char *) longword_ptr;
 
-  while (n-- > 0)
+  for (; n > 0; --n)
     {
       if (*--char_ptr == c)
 	return (void *) char_ptr;

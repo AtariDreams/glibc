@@ -2,7 +2,7 @@
 
 attribute_hidden
 int
-fprintf (FILE *stream, const char *fmt, ...)
+fprintf (FILE *__restrict stream, const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

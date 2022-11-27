@@ -24,7 +24,7 @@
 #endif
 
 char *
-STRNCPY (char *s1, const char *s2, size_t n)
+STRNCPY (char *__restrict s1, const char *__restrict s2, size_t n)
 {
   size_t size = __strnlen (s2, n);
   if (size != n)

@@ -97,7 +97,7 @@ extern void lr_ignore_rest (struct linereader *lr, int verbose);
 
 static inline void
 __attribute__ ((__format__ (__printf__, 2, 3), nonnull (1, 2)))
-lr_error (struct linereader *lr, const char *fmt, ...)
+lr_error (struct linereader *lr, const char *__restrict fmt, ...)
 {
   char *str;
   va_list arg;

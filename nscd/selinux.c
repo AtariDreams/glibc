@@ -77,7 +77,7 @@ static pthread_t avc_notify_thread;
 
 #ifdef HAVE_LIBAUDIT
 /* Prototype for supporting the audit daemon */
-static void log_callback (const char *fmt, ...);
+static void log_callback (const char *__restrict fmt, ...);
 #endif
 
 /* Prototypes for AVC callback functions.  */
@@ -117,7 +117,7 @@ static int audit_fd = -1;
 
 /* When an avc denial occurs, log it to audit system */
 static void
-log_callback (const char *fmt, ...)
+log_callback (const char *__restrict fmt, ...)
 {
   if (audit_fd >= 0)
     {

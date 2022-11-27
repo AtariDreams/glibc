@@ -7,7 +7,7 @@
 
 int
 attribute_hidden
-__vsscanf (const char *string, const char *fmt, va_list ap)
+__vsscanf (const char *__restrict string, const char *__restrict fmt, va_list ap)
 {
   return __nldbl_vsscanf (string, fmt, ap);
 }

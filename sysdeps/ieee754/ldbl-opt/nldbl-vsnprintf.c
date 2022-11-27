@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-vsnprintf (char *string, size_t maxlen, const char *fmt, va_list ap)
+vsnprintf (char *__restrict string, size_t maxlen, const char *__restrict fmt, va_list ap)
 {
   return __nldbl_vsnprintf (string, maxlen, fmt, ap);
 }

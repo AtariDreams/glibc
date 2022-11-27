@@ -2,7 +2,7 @@
 
 int
 attribute_hidden
-printf (const char *fmt, ...)
+printf (const char *__restrict fmt, ...)
 {
   va_list arg;
   int done;

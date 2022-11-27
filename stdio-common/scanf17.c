@@ -32,7 +32,7 @@
   } while (0)
 
 static int
-xsscanf (const char *str, const char *fmt, ...)
+xsscanf (const char *str, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -42,7 +42,7 @@ xsscanf (const char *str, const char *fmt, ...)
 }
 
 static int
-xscanf (const char *fmt, ...)
+xscanf (const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);
@@ -52,7 +52,7 @@ xscanf (const char *fmt, ...)
 }
 
 static int
-xfscanf (FILE *f, const char *fmt, ...)
+xfscanf (FILE *f, const char *__restrict fmt, ...)
 {
   va_list ap;
   va_start (ap, fmt);

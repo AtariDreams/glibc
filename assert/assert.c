@@ -44,8 +44,8 @@ extern const char *__progname;
 
 
 void
-__assert_fail_base (const char *fmt, const char *assertion, const char *file,
-		    unsigned int line, const char *function)
+__assert_fail_base (const char *__restrict fmt, const char *__restrict assertion, const char *__restrict file,
+		    unsigned int line, const char *__restrict function)
 {
   char *str;
 
@@ -95,8 +95,8 @@ __assert_fail_base (const char *fmt, const char *assertion, const char *file,
 
 #undef __assert_fail
 void
-__assert_fail (const char *assertion, const char *file, unsigned int line,
-	       const char *function)
+__assert_fail (const char *__restrict assertion, const char *__restrict file, unsigned int line,
+	       const char *__restrict function)
 {
   __assert_fail_base (_("%s%s%s:%u: %s%sAssertion `%s' failed.\n%n"),
 		      assertion, file, line, function);

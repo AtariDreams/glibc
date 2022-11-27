@@ -2,7 +2,7 @@
 
 void
 attribute_hidden
-__syslog_chk (int pri, int flag, const char *fmt, ...)
+__syslog_chk (int pri, int flag, const char *__restrict fmt, ...)
 {
   va_list ap;
 

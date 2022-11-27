@@ -45,7 +45,7 @@ mcheck_abort (enum mcheck_status ev)
 }
 
 static void
-error_printf (int line, const char *fmt, ...)
+error_printf (int line, const char *__restrict fmt, ...)
 {
   va_list ap;
 

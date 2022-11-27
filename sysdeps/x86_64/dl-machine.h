@@ -416,17 +416,14 @@ and creates an unsatisfiable circular dependency.\n",
 	  value += reloc->r_addend;
 	  *(unsigned int *) reloc_addr = value;
 
-	  const char *fmt;
 	  if (__glibc_unlikely (value > UINT_MAX))
 	    {
 	      const char *strtab;
 
-	      fmt = "\
-%s: Symbol `%s' causes overflow in R_X86_64_32 relocation\n";
-	    print_err:
 	      strtab = (const char *) D_PTR (map, l_info[DT_STRTAB]);
 
-	      _dl_error_printf (fmt, RTLD_PROGNAME, strtab + refsym->st_name);
+	      _dl_error_printf ("\
+		  %s: Symbol `%s' causes overflow in R_X86_64_32 relocation\n", RTLD_PROGNAME, strtab + refsym->st_name);
 	    }
 	  break;
 	  /* Not needed for dl-conflict.c.  */
@@ -435,9 +432,8 @@ and creates an unsatisfiable circular dependency.\n",
 	  *(unsigned int *) reloc_addr = value;
 	  if (__glibc_unlikely (value != (int) value))
 	    {
-	      fmt = "\
-%s: Symbol `%s' causes overflow in R_X86_64_PC32 relocation\n";
-	      goto print_err;
+		  _dl_error_printf ("\
+		  %s: Symbol `%s' causes overflow in R_X86_64_PC32 relocation\n", RTLD_PROGNAME, strtab + refsym->st_name);
 	    }
 	  break;
 	case R_X86_64_COPY:
@@ -451,9 +447,8 @@ and creates an unsatisfiable circular dependency.\n",
 	      || (__glibc_unlikely (sym->st_size < refsym->st_size)
 		  && GLRO(dl_verbose)))
 	    {
-	      fmt = "\
-%s: Symbol `%s' has different size in shared object, consider re-linking\n";
-	      goto print_err;
+		  _dl_error_printf ("\
+		  %s: Symbol `%s' has different size in shared object, consider re-linking\n", RTLD_PROGNAME, strtab + refsym->st_name);
 	    }
 	  break;
 	case R_X86_64_IRELATIVE:
